@@ -1,28 +1,21 @@
 ----
 
+This application will fetch vault key-vaule from Hashicorp Vault. 
+
+Setup : 
 Run local HashiCorp Vault -  `docker compose up` command.
 
-
-----
 export VAULT_TOKEN="mb04281999"
 export VAULT_ADDR="http://127.0.0.1:8200"
-----
 
 Now add key-value pairs in Vault.
-
-[source,shell]
-----
 vault kv put secret/gs-vault-config config.username=bismaya config.password=bismayam123
 vault kv put secret/gs-vault-config/cloud config.username=bismayam config.password=bismayam123
-----
 
-Now you have written two entries in Vault `secret/vault-config` and `secret/vault-config/cloud`.
 
-With the Vault container running and the data loaded, you are now ready to turn your attention to the Spring application.
+Now we can see entries in Vault `secret/vault-config` and `secret/vault-config/cloud`.
 
-== Run the Application and check user/pass fetched from Vault
-[source,shell]
-----
+Run the Application and check user/pass fetched from Vault
+
  cd vault-config/module1
  mvn spring-boot:run
- ----
